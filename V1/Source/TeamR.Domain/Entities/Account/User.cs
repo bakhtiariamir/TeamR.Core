@@ -15,6 +15,6 @@ public class User : Info<Guid>
     public string? Latitude { get; set; }
     public string? Longitude  { get; set; }
     public string? Altitude  { get; set; }
-    public Guid AccountId { get; set; }
-    public virtual Account Account { get; set; }
+    public Guid? AccountId { get; set; }
+    public virtual Account? Account { get; set; }
 }

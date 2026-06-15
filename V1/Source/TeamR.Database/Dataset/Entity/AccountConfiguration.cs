@@ -15,6 +15,11 @@ public class AccountConfiguration : IEntityTypeConfiguration<Account>
         builder.Property(p => p.Password).HasMaxLength(250).IsRequired();   
         builder.Property(p => p.Email).HasMaxLength(250).IsRequired();
         builder.Property(p => p.Image).IsRequired(false);
-        builder.HasOne(item => item.User).WithOne(item => item.Account).HasForeignKey<User>(item => item.AccountId).OnDelete(DeleteBehavior.Cascade);
+        builder.Property(p => p.User).IsRequired(false);
+        
+        builder.HasOne(item => item.User)
+            .WithOne(item => item.Account)
+            .HasForeignKey<User>(item => item.AccountId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
