@@ -1,0 +1,2 @@
+1. dotnet ef migrations add InitDb --context ApplicationContext --project .\TeamR.Database\TeamR.Database.csproj --startup-project .\TeamR.Api\TeamR.Api.csproj --output-dir Migrations
+2.dotnet ef database update --project .\TeamR.Api\TeamR.Api.csproj
