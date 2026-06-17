@@ -1,11 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TeamR.Core.Object;
 using TeamR.Core.Type;
+using TeamR.Domain.Entities.Info;
+using TeamR.Domain.Entities.Organization;
 
 namespace TeamR.Domain.Entities.Structure;
 
 [Index(nameof(Name), nameof(Url))]
-public class Document : Entity<Guid>
+public class Document : Info<Guid>
 {
     public string Name
     {
@@ -17,7 +19,13 @@ public class Document : Entity<Guid>
     {
         get;
         set;
-    } 
+    }
+
+    public string DocumentNumber
+    {
+        get; 
+        set;
+    }
     
     public string? Description
     {
@@ -66,6 +74,18 @@ public class Document : Entity<Guid>
         get;
         set;
     }
+
+    public Guid CompanyId
+    {
+        get;
+        set;
+    }
+
+    public virtual Company Company
+    {
+        get;
+        set;
+    }
 }
 
 //string result = System.Text.Encoding.UTF8.GetString(byteArray);
@@ -88,3 +108,5 @@ public class Document : Entity<Guid>
 //    using var fileStream = File.Create(path);
 //    fileStream.Write(stream.ToArray());
 //}
+
+

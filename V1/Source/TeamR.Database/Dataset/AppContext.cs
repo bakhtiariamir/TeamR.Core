@@ -13,7 +13,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
     public DbSet<Account>  Accounts { get; set; }
     public DbSet<Folder>  Folders { get; set; }
     public DbSet<Document>  Documents { get; set; }
-    public DbSet<Chart>  Charts { get; set; }
+    public DbSet<Company>  Companies { get; set; }
     public DbSet<Department> Departments { get; set; }
     public DbSet<Post> Posts { get; set; }
     public DbSet<PostRelation> PostRelations { get; set; }
@@ -26,7 +26,7 @@ public class ApplicationContext(DbContextOptions<ApplicationContext> options) : 
         modelBuilder.ApplyConfiguration(new VersionConfiguration());
         modelBuilder.ApplyConfiguration(new DocumentConfiguration());
         modelBuilder.ApplyConfiguration(new FolderConfiguration());
-        modelBuilder.ApplyConfiguration(new ChartConfiguration());
+        modelBuilder.ApplyConfiguration(new CompanyConfiguration());
         modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
         modelBuilder.ApplyConfiguration(new PostConfiguration());
         modelBuilder.ApplyConfiguration(new PostRelationConfiguration());

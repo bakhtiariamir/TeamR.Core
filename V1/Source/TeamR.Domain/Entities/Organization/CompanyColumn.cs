@@ -1,6 +1,6 @@
 ﻿namespace TeamR.Domain.Entities.Organization;
 
-public enum ChartColumn
+public enum CompanyColumn
 {
     Name = 1,
     Description = 2,

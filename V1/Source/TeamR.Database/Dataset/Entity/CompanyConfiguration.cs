@@ -4,17 +4,17 @@ using TeamR.Domain.Entities.Organization;
 
 namespace TeamR.Database.Dataset.Entity;
 
-public class ChartConfiguration : IEntityTypeConfiguration<Chart>
+public class CompanyConfiguration : IEntityTypeConfiguration<Company>
 {
-    public void Configure(EntityTypeBuilder<Chart> builder)
+    public void Configure(EntityTypeBuilder<Company> builder)
     {
-        builder.ToTable("Chart", "organization");
+        builder.ToTable("Company", "organization");
         builder.HasKey(x => x.Id);
         builder.Property(p => p.Id).HasDefaultValueSql("NEWID()");
         builder.Property(p => p.Name).IsRequired().HasMaxLength(512);
         builder.Property(p => p.Description).IsRequired(false).HasMaxLength(4000);
         builder.Property(p => p.ChartType).IsRequired();
         
-        builder.HasMany(p => p.Departments).WithOne(p => p.Chart).HasForeignKey(p => p.ChartId).OnDelete(DeleteBehavior.Cascade);
+        builder.HasMany(p => p.Departments).WithOne(p => p.Company).HasForeignKey(p => p.CompanyId).OnDelete(DeleteBehavior.Cascade);
     }
 }

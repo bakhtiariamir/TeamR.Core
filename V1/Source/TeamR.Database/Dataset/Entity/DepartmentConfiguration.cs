@@ -15,6 +15,6 @@ public class DepartmentConfiguration : IEntityTypeConfiguration<Department>
         builder.Property(p => p.Description).IsRequired(false).HasMaxLength(4000);
 
         builder.HasOne(p => p.Parent).WithMany().HasForeignKey(p => p.ParentId).OnDelete(DeleteBehavior.NoAction);
-        builder.HasOne(p => p.Chart).WithMany(p => p.Departments).HasForeignKey(p => p.ChartId).OnDelete(DeleteBehavior.Cascade);
+        builder.HasOne(p => p.Company).WithMany(p => p.Departments).HasForeignKey(p => p.CompanyId).OnDelete(DeleteBehavior.Cascade);
     }
 }

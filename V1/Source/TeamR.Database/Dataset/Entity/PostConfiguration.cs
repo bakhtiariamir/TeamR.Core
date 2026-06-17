@@ -16,7 +16,7 @@ public class PostConfiguration : IEntityTypeConfiguration<Post>
         builder.Property(p => p.Description).IsRequired(false).HasMaxLength(4000);
         builder.Property(p => p.Capacity).IsRequired().HasMaxLength(20);
         
-        builder.HasOne(p => p.Chart).WithMany(p => p.Posts).HasForeignKey(p => p.ChartId).OnDelete(DeleteBehavior.NoAction);
+        builder.HasOne(p => p.Company).WithMany(p => p.Posts).HasForeignKey(p => p.CompanyId).OnDelete(DeleteBehavior.NoAction);
         builder.HasOne(p => p.Department).WithMany(p => p.Posts).HasForeignKey(p => p.DepartmentId).OnDelete(DeleteBehavior.NoAction);
         builder.HasMany(p => p.Relations).WithOne(p => p.Post).OnDelete(DeleteBehavior.NoAction);
     }
